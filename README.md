@@ -38,7 +38,7 @@ The contents of this project are divided as follows:-
 
 10.	References
 
-============================================================================
+===================================================================================
 
 
 ## 1. Introduction
@@ -62,7 +62,7 @@ are not affected by feature scaling. In Short, any Algorithm which is not distan
 So, let’s start our discussion of various techniques associated with feature scaling.
 
 
-================================================================================
+====================================================================================
 
 
 ## 2. Rescaling data with MinMaxScaler
@@ -101,7 +101,7 @@ The syntax for implementing **min-max scaling** procedure in Scikit-Learn is giv
 `X_test_ms = ms.transform(X_test)`
 
 
-==========================================================================
+====================================================================================
 
 
 
@@ -151,70 +151,237 @@ test set or new data set.
 
 
 
-===========================================================================
+===================================================================================
 
 
-## 4. Normalizing data with Normalizer
+## 4. Rescaling data with MaxAbsScaler
 
 
-In this feature scaling task, we rescale each observation to a length of 1 (a unit norm). Scikit-Learn provides, the Normalizer class for this task. In this task, we scale the components of a feature vector such that the complete vector has length one. This usually means dividing each component by the Euclidean length (magnitude) of the vector:
+In this feature rescaling task, we rescale each feature by its maximum absolute value. So, the maximum absolute value of each 
+feature in the training set will be 1.0. It does not affect the data and hence there is no effect on sparsity.
+
+
+Scikit-Learn provides **MaxAbsScaler** transformer for this task.
+
+
+The syntax for implementing max-abs scaling procedure in Scikit-Learn is given as follows:- 
+
+
+`from sklearn.preprocessing import MaxAbsScaler`
+
+`mabs = MaxAbsScaler()`
+
+`X_train_mabs = mabs.fit_transform(X_train)`
+
+`X_test_mabs = mabs.transform(X_test)`
+
+
+
+===================================================================================
+
+
+## 5. Rescaling data with RobustScaler
+
+
+**StandardScaler** can often give misleading results when the data contain outliers.  Outliers can often influence the 
+sample mean and variance and hence give misleading results. In such cases, it is better to use a scalar that is robust 
+against outliers. 
+
+
+Scikit-Learn provides a transformer called **RobustScaler** for this purpose.
+
+
+The **RobustScaler** is very similar to **MinMaxScaler**. The difference lies in the parameters used for scaling. 
+While **MinMaxScaler** uses minimum and maximum values for rescaling, **RobustScaler** uses interquartile(IQR) 
+range for the same.
+
+
+
+Mathematically, the new value x(i)norm of a sample x(i) can be calculated as follows:-
+ 
+		     x(i)  =  (xi-  Q1(x) )/(Q3(x) - Q1(x))
+		     
+		     
+
+Here, x(i) is the scaled value, xi is a particular sample value, Q1(x) and Q3(x) are the 1st quartile (25th quantile) and 
+3rd quartile (75th quantile) respectively. So, Q3(x) - Q1(x) is the difference between 3rd quartile (75th quantile) and 
+1st quartile (25th quantile) respectively. It is called IQR (Interquartile Range).
+
+	
+
+The syntax for implementing scaling using RobustScaler in Scikit-Learn is given as follows:- 
+
+
+`from sklearn.preprocessing import RobustScaler`
+
+`rb = RobustScaler()`
+
+`X_train_rb = rb.fit_transform(X_train)`
+
+`X_test_rb = rb.transform(X_test)`
+
+
+
+
+===================================================================================
+
+
+## 6. Normalizing data with Normalizer
+
+
+In this feature scaling task, we rescale each observation to a length of 1 (a unit norm). Scikit-Learn provides the 
+**Normalizer** class for this task. In this task, we scale the components of a feature vector such that the complete 
+vector has length one. This usually means dividing each component by the Euclidean length (magnitude) of the vector.
+
+
+
 Mathematically, normalization can be expressed by the following equation: 
 
-x(i)norm =   x(i) / | x(i)|
 
-where  x(i) is a particular sample value , x(i)norm is its normalized value and | x(i)| is the corresponding Euclidean length of the vector. 
+
+		x(i)norm =   x(i) / | x(i)|
+		
+
+where  x(i) is a particular sample value , x(i)norm is its normalized value and | x(i)| is the corresponding 
+Euclidean length of the vector. 
+
+
 
 The syntax for normalization is quite similar to standardization given as follows:-
 
-from sklearn.preprocessing import Normalizer
-norm = Normalizer ()
-X_train_std = norm.fit_transform(X_train)
-X_test_std = norm.transform(X_test)
 
-=======================================================
+`from sklearn.preprocessing import Normalizer`
 
-## 5. Binarizing data with Binarizer
-In this feature scaling procedure, we binarize the data (set feature values equal to 0 or 1) according to a threshold. So, using a binary threshold, we transform our data by marking the values above it to 1 and those equal to or below it to 0. Scikit-Learn provides Binarizer class for this purpose. 
+`norm = Normalizer ()`
+
+`X_train_norm = norm.fit_transform(X_train)`
+
+`X_test_norm = norm.transform(X_test)`
+
+
+
+===================================================================================
+
+
+
+## 7. Binarizing data with Binarizer
+
+
+In this feature scaling procedure, we binarize the data (set feature values equal to 0 or 1) according to a threshold. 
+So, using a binary threshold, we transform our data by marking the values above it to 1 and those equal to or below it 
+to 0. Scikit-Learn provides **Binarizer** class for this purpose. 
+
+
 The syntax for binarizing the data follow the same rules as above and is given below:-
 
-from sklearn.preprocessing import Binarizer
-bin = Binarizer ()
-X_train_std = bin.fit_transform(X_train)
-X_test_std = bin.transform(X_test)
 
+`from sklearn.preprocessing import Binarizer`
 
-=======================================================
+`binr = Binarizer ()`
 
+`X_train_binr = binr.fit_transform(X_train)`
 
-## 6. Mean removal with Scale
-In this feature scaling task, we remove the mean from each feature to centre it on zero. Thus, we standardize a dataset along any axis. Scikit-Learn provides scale class for this purpose. The syntax for this purpose is given below:-
-
-from sklearn.preprocessing import scale
-scl = scale()
-X_train_std = scl.fit_transform(X_train)
-X_test_std = scl.transform(X_test)
-
-=======================================================
-
-## 7. Applications
-
-
-Now, I will discuss few applications
-
-=======================================================
+`X_test_binr = binr.transform(X_test)`
 
 
 
-## 8. References
+===================================================================================
+
+
+## 8. Mean removal with scale
+
+
+In this feature scaling task, we remove the mean from each feature to centre it on zero. Thus, we standardize a dataset 
+along any axis. 
+
+
+Scikit-Learn provides **scale** class for this purpose. 
+
+
+The syntax for this purpose is given below:-
+
+
+`from sklearn.preprocessing import scale`
+
+`scl = scale()`
+
+`X_train_scl = scl.fit_transform(X_train)`
+
+`X_test_scl = scl.transform(X_test)`
+
+
+
+===================================================================================
+
+
+## 9. Applications
+
+
+
+Now, I will discuss few applications of feature scaling.
+
+
+Generally real world dataset contains features that differ in magnitudes, units and range. We should perform **Normalization**
+when the scale of a feature is irrelevant or misleading. The algorithms which depend on Euclidean distance measure are sensitive 
+to magnitudes. In this case, feature scaling helps to weigh all the features equally.
+
+
+Suppose a feature in the dataset is relatively big in magnitude as compared to other features. Then in algorithms where Euclidean 
+distance is measured, this big scaled feature becomes dominating and needs to be normalized.
+
+
+### Applications of Feature Scaling 
+
+
+I will discuss algorithms where feature scaling matters. These are as follows:-
+ 
+
+1. **K-Means** – K Means algorithm is based on the Euclidean distance measure.  Hence feature scaling matters.
+
+
+2. **K-Nearest-Neighbours** also require feature scaling. 
+
+
+3. **Principal Component Analysis (PCA)**: In PCA algorithm, we try to get the feature with maximum variance. 
+Here too feature scaling is required.
+
+
+4. **Gradient Descent**: In gradient descent algorithm, calculation speed increases as theta calculation becomes faster 
+after feature scaling.
+
+
+I have previously stated that any algorithm which is not distance based is not affected by feature scaling. 
+
+
+So, **Naive Bayes**, **Linear Discriminant Analysis** and **Tree-Based models (Decision Trees and Random Forests)** 
+are not affected by feature scaling.
+
+
+
+===================================================================================
+
+
+
+## 10. References
 
 
 The ideas and techniques in this project have been taken from the following books and websites:-
 
+
 i.	Scikit-Learn API reference
+
 
 ii.	Python Machine Learning by Sebastian Raschka
 
+
 iii.	Hands-On Machine Learning with Scikit Learn and Tensorflow by Aurélien Géron 
+
+
+iv.	https://en.wikipedia.org/wiki/Feature_scaling
+
+
+v.	https://sebastianraschka.com/Articles/2014_about_feature_scaling.html
+
 
 
 
