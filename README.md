@@ -252,11 +252,11 @@ The syntax for normalization is quite similar to standardization given as follow
 
 `from sklearn.preprocessing import Normalizer`
 
-`norm = Normalizer ()`
+`nm = Normalizer()`
 
-`X_train_norm = norm.fit_transform(X_train)`
+`X_train_nm = nm.fit_transform(X_train)`
 
-`X_test_norm = norm.transform(X_test)`
+`X_test_nm = nm.transform(X_test)`
 
 
 
@@ -277,7 +277,7 @@ The syntax for binarizing the data follow the same rules as above and is given b
 
 `from sklearn.preprocessing import Binarizer`
 
-`binr = Binarizer ()`
+`binr = Binarizer()`
 
 `X_train_binr = binr.fit_transform(X_train)`
 
