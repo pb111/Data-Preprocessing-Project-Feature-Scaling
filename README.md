@@ -62,7 +62,7 @@ are not affected by feature scaling. In Short, any Algorithm which is not distan
 So, let’s start our discussion of various techniques associated with feature scaling.
 
 
-==================================================================================
+=================================================================================
 
 
 ## 2. Rescaling data with MinMaxScaler
@@ -101,7 +101,7 @@ The syntax for implementing **min-max scaling** procedure in Scikit-Learn is giv
 `X_test_ms = ms.transform(X_test)`
 
 
-==================================================================================
+=================================================================================
 
 
 
