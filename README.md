@@ -39,8 +39,7 @@ The contents of this project are divided as follows:-
 
 10.	References
 
-================================================================================
-
+===============================================================================
 
 ## 1. Introduction
 
@@ -63,8 +62,7 @@ are not affected by feature scaling. In Short, any Algorithm which is not distan
 So, let’s start our discussion of various techniques associated with feature scaling.
 
 
-================================================================================
-
+===============================================================================
 
 ## 2. Rescaling data with MinMaxScaler
 
@@ -102,9 +100,7 @@ The syntax for implementing **min-max scaling** procedure in Scikit-Learn is giv
 `X_test_ms = ms.transform(X_test)`
 
 
-=================================================================================
-
-
+===============================================================================
 
 ## 3. Standardising data with StandardScaler
 
@@ -150,10 +146,7 @@ is quite similar to min-max scaling given as follows :-
 Again, we should fit the StandardScaler class only once on the training data set and use those parameters to transform the 
 test set or new data set.
 
-
-
-=================================================================================
-
+===============================================================================
 
 ## 4. Rescaling data with MaxAbsScaler
 
@@ -176,10 +169,7 @@ The syntax for implementing max-abs scaling procedure in Scikit-Learn is given a
 
 `X_test_mabs = mabs.transform(X_test)`
 
-
-
-=================================================================================
-
+===============================================================================
 
 ## 5. Rescaling data with RobustScaler
 
@@ -221,14 +211,9 @@ The syntax for implementing scaling using RobustScaler in Scikit-Learn is given 
 
 `X_test_rb = rb.transform(X_test)`
 
-
-
-
-=================================================================================
-
+===============================================================================
 
 ## 6. Normalizing data with Normalizer
-
 
 In this feature scaling task, we rescale each observation to a length of 1 (a unit norm). Scikit-Learn provides the 
 **Normalizer** class for this task. In this task, we scale the components of a feature vector such that the complete 
@@ -259,14 +244,9 @@ The syntax for normalization is quite similar to standardization given as follow
 
 `X_test_nm = nm.transform(X_test)`
 
-
-
-=================================================================================
-
-
+===============================================================================
 
 ## 7. Binarizing data with Binarizer
-
 
 In this feature scaling procedure, we binarize the data (set feature values equal to 0 or 1) according to a threshold. 
 So, using a binary threshold, we transform our data by marking the values above it to 1 and those equal to or below it 
@@ -284,13 +264,9 @@ The syntax for binarizing the data follow the same rules as above and is given b
 
 `X_test_binr = binr.transform(X_test)`
 
-
-
-=================================================================================
-
+===============================================================================
 
 ## 8. Mean removal with scale
-
 
 In this feature scaling task, we remove the mean from each feature to centre it on zero. Thus, we standardize a dataset 
 along any axis. 
@@ -310,17 +286,11 @@ The syntax for this purpose is given below:-
 
 `X_test_scl = scl.transform(X_test)`
 
-
-
-=================================================================================
-
+===============================================================================
 
 ## 9. Applications
 
-
-
 Now, I will discuss few applications of feature scaling.
-
 
 Generally real world dataset contains features that differ in magnitudes, units and range. We should perform **Normalization**
 when the scale of a feature is irrelevant or misleading. The algorithms which depend on Euclidean distance measure are sensitive 
@@ -358,30 +328,21 @@ So, **Naive Bayes**, **Linear Discriminant Analysis** and **Tree-Based models (D
 are not affected by feature scaling.
 
 
-
 =================================================================================
-
-
 
 ## 10. References
 
-
 The ideas and techniques in this project have been taken from the following books and websites:-
 
+1. Scikit-Learn API reference
 
-i.	Scikit-Learn API reference
+2. Python Machine Learning by Sebastian Raschka
 
+3. Hands-On Machine Learning with Scikit Learn and Tensorflow by Aurélien Géron 
 
-ii.	Python Machine Learning by Sebastian Raschka
+4. https://en.wikipedia.org/wiki/Feature_scaling
 
-
-iii.	Hands-On Machine Learning with Scikit Learn and Tensorflow by Aurélien Géron 
-
-
-iv.	https://en.wikipedia.org/wiki/Feature_scaling
-
-
-v.	https://sebastianraschka.com/Articles/2014_about_feature_scaling.html
+5. https://sebastianraschka.com/Articles/2014_about_feature_scaling.html
 
 
 
