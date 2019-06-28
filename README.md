@@ -328,7 +328,7 @@ So, **Naive Bayes**, **Linear Discriminant Analysis** and **Tree-Based models (D
 are not affected by feature scaling.
 
 
-=================================================================================
+===============================================================================
 
 ## 10. References
 
