@@ -3,7 +3,7 @@
  **Feature Scaling** is the process used to standardize range of independent variables so that they can be mapped onto same scale. In this project, I discuss various data preprocessing techniques related to Feature Scaling. I have discussed useful estimators related to Feature Scaling. The estimators are MinMaxScaler, StandardScaler, MaxAbsScaler, RobustScaler, Normalizer, Binarizer and scale.
 
 
-================================================================================
+===============================================================================
 
 
 ## Table of Contents
