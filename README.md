@@ -1,13 +1,14 @@
 # Data Preprocessing Project – Feature Scaling
 
-In this project, I discuss various data preprocessing techniques related to feature scaling.
+ **Feature Scaling** is the process used to standardize range of independent variables so that they can be mapped onto same scale. In this project, I discuss various data preprocessing techniques related to Feature Scaling. I have discussed useful estimators related to Feature Scaling. The estimators are MinMaxScaler, StandardScaler, MaxAbsScaler, RobustScaler, Normalizer, Binarizer and scale.
 
 
-The contents of this project are divided as follows:-
+================================================================================
 
 
 ## Table of Contents
 
+The contents of this project are divided as follows:-
 
 1.	Introduction
 
@@ -38,7 +39,7 @@ The contents of this project are divided as follows:-
 
 10.	References
 
-=================================================================================
+================================================================================
 
 
 ## 1. Introduction
@@ -62,7 +63,7 @@ are not affected by feature scaling. In Short, any Algorithm which is not distan
 So, let’s start our discussion of various techniques associated with feature scaling.
 
 
-=================================================================================
+================================================================================
 
 
 ## 2. Rescaling data with MinMaxScaler
